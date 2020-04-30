@@ -125,8 +125,6 @@ if __name__ == "__main__":
 			level += 1
 			
 		except TypeError as e:
-			if check_end_game(img):
-				break
 			time.sleep(0.01)
 	
 
