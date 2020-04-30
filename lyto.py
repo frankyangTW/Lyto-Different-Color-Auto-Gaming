@@ -1,4 +1,3 @@
-import matplotlib.pyplot as plt
 import cv2
 import numpy as np
 from selenium import webdriver
@@ -9,8 +8,8 @@ from PIL import Image
 import base64
 
 # Facebook login
-facebook_username = "xxxxxx@gmail.com"
-facebook_password = "xxxxxx"
+FACEBOOK_USERNAME = "xxxxxx@gmail.com"
+FACEBOOK_PASSWORD = "xxxxxx"
 
 
 # Canvas size
@@ -77,24 +76,16 @@ def get_diff_circle(img, offset=450, box=5):
 				return x, y+offset, r
 
 	except AssertionError as e:
-		# plt.imsave('img{}.png'.format(errors), img)
 		errors += 1
 		print (e)
 		return
-
-end = plt.imread('end.png')
-def check_end_game(img):
-	time_remainging = img[200:300, 500:650]
-	return (np.array_equal(end, time_remainging))
-
-
 
 if __name__ == "__main__":
 
 	# Initialize driver
 	driver = webdriver.Firefox()
 
-	login_to_facebook(facebook_username, facebook_password, driver)
+	login_to_facebook(FACEBOOK_USERNAME, FACEBOOK_PASSWORD, driver)
 
 	# Navigate to Lyto Game
 	driver.get("https://www.facebook.com/instantgames/1099543880229447")
@@ -139,6 +130,6 @@ if __name__ == "__main__":
 			time.sleep(0.01)
 	
 
-	# Do what you want, i.e. share your results
+	# Do whatever you want, i.e. share your results
 	time.sleep(120)
 
