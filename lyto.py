@@ -56,7 +56,7 @@ def get_diff_circle(img, offset=450, box=5):
 	global errors
 	try:
 		gray = (cv2.cvtColor(img[offset:, :], cv2.COLOR_RGBA2GRAY)* 255).astype(np.uint8)
-		circles = cv2.HoughCircles(gray, cv2.HOUGH_GRADIENT, 3.5, 80, maxRadius=100)[0] # Find alls circles
+		circles = cv2.HoughCircles(gray, cv2.HOUGH_GRADIENT, 3.5, 80, maxRadius=100)[0] # Find all circles
 
 		assert len(circles) in [4, 9, 16, 25, 36, 49, 64, 81], ("Error: Found {} circles".format(len(circles)))
 
@@ -128,6 +128,6 @@ if __name__ == "__main__":
 			time.sleep(0.01)
 	
 
-	# Do whatever you want, i.e. share your results
+	# Do whatever you want, e.g. share your results
 	time.sleep(120)
 
